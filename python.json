@@ -1,0 +1,865 @@
+{
+	// Place your snippets for python here. Each snippet is defined under a snippet name and has a prefix, body and 
+	// description. The prefix is what is used to trigger the snippet and the body will be expanded and inserted. Possible variables are:
+	// $1, $2 for tab stops, $0 for the final cursor position, and ${1:label}, ${2:another} for placeholders. Placeholders with the 
+	// same ids are connected.
+	// Example:
+	// "Print to console": {
+	// 	"prefix": "log",
+	// 	"body": [
+	// 		"console.log('$1');",
+	// 		"$2"
+	// 	],
+	// 	"description": "Log output to console"
+	// }
+	// import
+	"import": {
+		"prefix": ["import", "ip"],
+		"body": [
+			"import ${1:module}",
+		],
+		"description": "import"
+	},
+	"from import": {
+		"prefix": ["from import","fi"],
+		"body": [
+			"from ${1:numpy} import ${2:module}",
+			"$0"
+		],
+		"description": "from X import Y"
+	},
+	"import as": {
+		"prefix": ["import as","ia"],
+		"body": [
+			"import ${1:module} as ${2:name}",
+			"$0"
+		],
+		"description": "import as"
+	},
+	"numpy": {
+		"prefix": ["numpy",],
+		"body": [
+			"import numpy as np",
+			"$0"
+		],
+		"description": "numpy"
+	},
+	"sympy": {
+		"prefix": ["sympy",],
+		"body": [
+			"from sympy import *",
+		],
+		"description": "sympy"
+	},
+	"sympysy": {
+		"prefix": ["sympysy","sy"],
+		"body": [
+			"import sympy as sy",
+		],
+		"description": "sympysy"
+	},
+	
+	"from scipy.constants import *": {
+		"prefix": ["from scipy.constants import *",],
+		"body": [
+			"from scipy.constants import ${1:*}",
+		],
+		"description": "from scipy.constants import *"
+	},
+	"hbar": {
+		"prefix": ["hbar",],
+		"body": [
+			"\\hbar",
+		],
+		"description": "hbar"
+	},
+	"import pandas as pd": {
+		"prefix": ["import pandas as pd","pandas"],
+		"body": [
+			"import pandas as pd",
+		],
+		"description": "import pandas as pd"
+	},
+	"from fractions import Fraction": {
+		"prefix": ["from fractions import Fraction",],
+		"body": [
+			"from fractions import Fraction",
+		],
+		"description": "from fractions import Fraction"
+	},
+	"Fraction": {
+		"prefix": ["Fraction",],
+		"body": [
+			"Fraction($0).limit_denominator(${1:10})",
+		],
+		"description": "Fraction"
+	},
+	
+	// plot 
+	"plt": {
+		"prefix": ["plt",],
+		"body": [
+			"import matplotlib.pyplot as plt",
+			"plt.style.use('dark_background')",
+			"$0"
+		],
+		"description": "plt"
+	},
+	"grid": {
+		"prefix": ["grid",],
+		"body": [
+			"plt.grid(ls = ':')",
+		],
+		"description": "grid"
+	},
+	"xlabel": {
+		"prefix": ["xlabel",],
+		"body": [
+			"plt.xlabel(\"$0\")",
+		],
+		"description": "xlabel"
+	},
+	"show": {
+		"prefix": ["show",],
+		"body": [
+			"plt.show()",
+		],
+		"description": "show"
+	},
+	"gca": {
+		"prefix": ["gca",],
+		"body": [
+			"ax = plt.gca()",
+		],
+		"description": "gca"
+	},
+	"facecolor": {
+		"prefix": ["facecolor",],
+		"body": [
+			"ax.set_facecolor('${1:dimgray}')",
+		],
+		"description": "facecolor"
+	},
+	"dark": {
+		"prefix": ["dark", "\\dark"],
+		"body": [
+			"plt.style.use('dark_background')",
+		],
+		"description": "dark"
+	},
+	// feather
+	"import pyarrow.feather as feather": {
+		"prefix": ["import pyarrow.feather as feather",],
+		"body": [
+			"import pyarrow.feather as feather",
+		],
+		"description": "import pyarrow.feather as feather"
+	},
+	"read_feather": {
+		"prefix": ["read_feather",],
+		"body": [
+			"import time",
+			"print('load feather...')",
+			"t = time.time()",
+			"df = feather.read_feather('${1:name}.feather')",
+			"print(time.time() - t,'seconds'); t = time.time()"
+		],
+		"description": "read_feather"
+	},
+	"feather_vars": {
+		"prefix": ["feather_vars",],
+		"body": [
+			"start_x = int(df.min().min())",
+			"end_x = int(df.max().max())",
+			"nx, ny = df.shape",
+		],
+		"description": "feather_vars"
+	},
+	
+	
+	// grammar
+	"if": {
+		"prefix": ["if", "ii"],
+		"body": [
+			"if $1:",
+			"\t$0",
+			//"$0",
+		],
+		"description": "if"
+	},
+	"def": {
+		"prefix": ["def", "df"],
+		"body": [
+			"def $1($2):",
+			"\t$0",
+			//"$0",
+		],
+		"description": "def"
+	},
+	"for": {
+		"prefix": ["for","ff",],
+		"body": [
+			"for $1 in $2:",
+			"\t$0",
+			//"$0",
+		],
+		"description": "for"
+	},
+	"for n in range()": {
+		"prefix": ["for n in range()",],
+		"body": [
+			"for n in range($1):",
+			"\t$0",
+			//"$0",
+		],
+		"description": "for n in range()"
+	},
+	"for j in range()": {
+		"prefix": ["for j in range()",],
+		"body": [
+			"for j in range($1):",
+			"\t$0",
+			//"$0",
+		],
+		"description": "for j in range()"
+	},
+	"for j in range(j1, j2)": {
+		"prefix": ["for j in range(j1, j2)",],
+		"body": [
+			"for j in range(${1:j1}, ${2:j2}):",
+			"\t$0",
+			//"$0",
+		],
+		"description": "for j in range(j1, j2)"
+	},
+	"for j inline": {
+		"prefix": ["for j in range line","fjline"],
+		"body": [
+			"for j in range($1)",
+		],
+		"description": "for j inline"
+	},
+	"while": {
+		"prefix": ["while", "ww"],
+		"body": [
+			"while $1:",
+			"\t$0",
+			//"$0",
+		],
+		"description": "while"
+	},
+	"try except": {
+		"prefix": ["try except",],
+		"body": [
+			"try:",
+			"\t$1",
+			"except:",
+			"\t$2",
+			"$0",
+		],
+		"description": "try except"
+	},
+	
+	"cell": {
+		"prefix": ["cell", "b", "bb"],
+		"body": [
+			"# %%",
+			"$0",
+		],
+		"description": "cell"
+	},
+
+	// built-in fc
+	//Python › Auto Complete: Add Brackets
+	// Automatically add brackets for functions on
+	//print
+	//range = rn
+	//sum = su, sm
+	// ...
+	"print()": {
+		"prefix": ["print()", "pr", "print"],
+		"body": [
+			"print($0)",
+		],
+		"description": "print()"
+	},
+	"print(''); print()": {
+		"prefix": ["print(''); print()", "dp"],
+		"body": [
+			// "print('$1 = '); print($1)",
+			// "print('$0'); print()",
+			"print(\"$1 = \"); display($1)",
+		],
+		"description": "double print"
+	},
+	"display()": {
+		"prefix": ["display()", "d", "display","ds"],
+		"body": [
+			"display($0)",
+		],
+		"description": "display()"
+	},
+	"display(''); display()": {
+		"prefix": ["dd"],//"display(''); display()", 
+		"body": [
+			"display('$1 = '); display($1)",
+		],
+		"description": "double display"
+	},
+	
+	"import display": {
+		"prefix": ["import display","display_import"],
+		"body": [
+			"from IPython.core.display import display",
+		],
+		"description": "import display"
+	},
+	
+	"if __name__ == '__main__'": {
+		"prefix": ["if __name__ == '__main__'",],
+		"body": [
+			"if __name__ == '__main__':",
+			"\t$1",
+			"$0",
+		],
+		"description": "if __name__ == '__main__'"
+	},
+	
+	//numpy
+	"np.array": {
+		"prefix": ["np.array",],
+		"body": [
+			"np.array($0)",
+		],
+		"description": "np.array"
+	},
+	"np.sqrt": {
+		"prefix": ["np.sqrt",],
+		"body": [
+			"np.sqrt($0)",
+		],
+		"description": "np.sqrt"
+	},
+	"qt.array": {
+		"prefix": ["qt.array",],
+		"body": [
+			"qt.array($0)",
+		],
+		"description": "qt.array"
+	},
+	"concatenate": {
+		"prefix": ["concatenate",],
+		"body": [
+			"np.concatenate([$0,])",
+		],
+		"description": "concatenate"
+	},
+	"np.arange": {
+		"prefix": ["np.arange","arangenp"],//nrn
+		"body": [
+			"np.arange($0)",
+		],
+		"description": "np.arange"
+	},
+	"np.linspace": {
+		"prefix": ["np.linspace","lin"],
+		"body": [
+			"np.linspace(${1:start},${2:end},${3:num})",
+		],
+		"description": "np.linspace"
+	},
+	"np.exp": {
+		"prefix": ["np.exp","expnp"],
+		"body": [
+			"np.exp($0)",
+		],
+		"description": "np.exp"
+	},
+	"np.log": {
+		"prefix": ["np.log",],
+		"body": [
+			"np.log($0)",
+		],
+		"description": "np.log"
+	},
+	"np.sin": {
+		"prefix": ["np.sin",],
+		"body": [
+			"np.sin($0)",
+		],
+		"description": "np.sin"
+	},
+	"np.cos": {
+		"prefix": ["np.cos",],
+		"body": [
+			"np.cos($0)",
+		],
+		"description": "np.cos"
+	},
+	"np.tan": {
+		"prefix": ["np.tan",],
+		"body": [
+			"np.tan($0)",
+		],
+		"description": "np.tan"
+	},
+
+	"np.empty": {
+		"prefix": ["np.empty",],
+		"body": [
+			"np.empty(${1:N})",
+		],
+		"description": "np.empty"
+	},
+	"np.real()": {
+		"prefix": ["np.real()","real"],
+		"body": [
+			"np.real($0)",
+		],
+		"description": "np.real()"
+	},
+	"np.imag()": {
+		"prefix": ["np.imag()","imag"],
+		"body": [
+			"np.imag($0)",
+		],
+		"description": "np.imag()"
+	},
+	"np.matrix()": {
+		"prefix": ["np.matrix()","matnp"],
+		"body": [
+			"np.matrix($0)",
+		],
+		"description": "np.matrix()"
+	},
+	"np.inf": {
+		"prefix": ["np.inf","inf"],
+		"body": [
+			"np.inf",
+		],
+		"description": "np.inf"
+	},
+	
+	// sympy
+	"import sympy as sy": {
+		"prefix": ["import sympy as sy",],
+		"body": [
+			"import sympy as sy",
+		],
+		"description": "import sympy as sy"
+	},
+	"from sympy import *": {
+		"prefix": ["from sympy import *", "sy*","sp"],
+		"body": [
+			"from sympy import *",
+			"$0",
+		],
+		"description": "from sympy import *"
+	},
+	
+	"from sympy.abc import": {
+		"prefix": ["abc"],//"from sympy.abc import",
+		"body": [
+			"from sympy.abc import ${1:x}",
+		],
+		"description": "from sympy.abc import"
+	},
+	"var('X, Y', commutative=False)": {
+		"prefix": ["var_noncom",],
+		"body": [
+			"var('X, Y', commutative=False)",
+		],
+		"description": "non-commutative algebra"
+	},
+	"Dagger()": {
+		"prefix": ["Dagger()",],
+		"body": [
+			"Dagger($0)",
+		],
+		"description": "Dagger()"
+	},
+	"simplify()": {
+		"prefix": ["simplify()",],
+		"body": [
+			"simplify($0)",
+		],
+		"description": "simplify()"
+	},
+	".simplify()": {
+		"prefix": [".simplify()",],
+		"body": [
+			".simplify($0)",
+		],
+		"description": ".simplify()"
+	},
+	".subs()": {
+		"prefix": [".subs()",],
+		"body": [
+			".subs($0)",
+		],
+		"description": ".subs()"
+	},
+	".expand()": {
+		"prefix": [".expand()",],
+		"body": [
+			".expand($0)",
+		],
+		"description": ".expand()"
+	},
+	"sy.zeta": {
+		"prefix": ["sy.zeta",],
+		"body": [
+			"sy.zeta($0)",
+		],
+		"description": "sy.zeta"
+	},
+	"sy.Matrix2": {
+		"prefix": ["sy.Matrix2","mat"],
+		"body": [
+			"Matrix([",
+			"\t[,   ,   ],",
+			"\t[,   ,   ],",
+			"])"
+		],
+		"description": "sy.Matrix 2 dim."
+	},
+	"sy.Matrix3": {
+		"prefix": ["sy.Matrix3",],
+		"body": [
+			"sy.Matrix([",
+			"\t[,   ,   ,  ],",
+			"\t[,   ,   ,  ],",
+			"\t[,   ,   ,  ],",
+			"])"
+		],
+		"description": "sy.Matrix 3 dim."
+	},
+	"symbols()": {
+		"prefix": ["symbols()",],
+		"body": [
+			"symbols('x0:'+str(2+1))",
+		],
+		"description": "symbols()"
+	},
+	"Symbol($0)": {
+		"prefix": ["Symbol($0)",],
+		"body": [
+			"Symbol($0)",
+		],
+		"description": "Symbol($0)"
+	},
+	"diff()": {
+		"prefix": ["diff()","di",],
+		"body": [
+			"diff($0)",
+		],
+		"description": "diff()"
+	},
+	".diff()": {
+		"prefix": [".diff()",".di"],
+		"body": [
+			".diff($0)",
+		],
+		"description": ".diff()"
+	},
+	"TensorProductImport": {
+		"prefix": ["TensorProductImport", ],
+		"body": [
+			"from sympy.physics.quantum import TensorProduct",
+		],
+		"description": "TensorProductImport"
+	},
+	"TensorProduct()": {
+		"prefix": ["TensorProduct()",],
+		"body": [
+			"TensorProduct($0)",
+		],
+		"description": "TensorProduct()"
+	},
+	"from sympy.physics.quantum import TensorProduct": {
+		"prefix": ["from sympy.physics.quantum import TensorProduct",],
+		"body": [
+			"from sympy.physics.quantum import TensorProduct",
+		],
+		"description": "from sympy.physics.quantum import TensorProduct"
+	},
+	"factor()": {
+		"prefix": ["factor()",],
+		"body": [
+			"factor($0)",
+		],
+		"description": "factor()"
+	},
+	"Function": {
+		"prefix": ["Function", "\\Function"],
+		"body": [
+			"Function(\"$0\")(x)",
+		],
+		"description": "Function"
+	},
+	
+	//my module
+	"loadimz": {
+		"prefix": ["loadimz",],
+		"body": [
+			"loadimz('${1:file_name}.txt')",
+		],
+		"description": "loadimz"
+	},
+	"loadimzbt": {
+		"prefix": ["loadimzbt",],
+		"body": [
+			"loadimzbt(file_name='1e0to1e8.txt', a=1,b=int(1e6),  NA = int(1.35e6), NB = int(1.2e6),N = int(1e8))",
+		],
+		"description": "loadimzbt"
+	},
+	// astropy
+	"astroconst": {
+		"prefix": ["astroconst",],
+		"body": [
+			"from astropy import constants as const",
+		],
+		"description": "astroconst"
+	},
+	
+	"const": {
+		"prefix": ["const","cst", "con"],
+		"body": [
+			"$1 = const.$1.si",
+		],
+		"description": "const"
+	},
+	"units": {
+		"prefix": ["units",],
+		"body": [
+			"from astropy import units as u",
+		],
+		"description": "units"
+	},
+	"Hubble constant": {
+		"prefix": ["Hubble constant",],
+		"body": [
+			"from astropy.cosmology import Planck15 as cosmo",
+			"H0 = cosmo.H(0)"
+		],
+		"description": "Hubble constant"
+	},
+	"m_e": {
+		"prefix": ["m_e","me"],
+		"body": [
+			"m_e",
+		],
+		"description": "m_e"
+	},
+	"m_p": {
+		"prefix": ["m_p"," mp"],
+		"body": [
+			"m_p",
+		],
+		"description": "m_p"
+	},
+	"M_sun": {
+		"prefix": ["M_sun","MO"],
+		"body": [
+			"M_sun",
+		],
+		"description": "M_sun"
+	},
+	
+	// greek letters
+	"mu": {
+		"prefix": ["mu", "@m"],
+		"body": [
+			"μ",
+		],
+		"description": "mu"
+	},
+	"gamma": {
+		"prefix": ["gamma", "@g"],
+		"body": [
+			"γ",
+		],
+		"description": "gamma"
+	},
+	"Gamma": {
+		"prefix": ["Gamma", "@G"],
+		"body": [
+			"Γ",
+		],
+		"description": "Gamma"
+	},
+	"alpha": {
+		"prefix": ["alpha","al", "@a"],
+		"body": [
+			"α",
+		],
+		"description": "alpha"
+	},
+	"beta": {
+		"prefix": ["beta","bt","@b"],
+		"body": [
+			"β",
+		],
+		"description": "beta"
+	},
+	"delta": {
+		"prefix": ["delta","dl", "@d"],
+		"body": [
+			"δ ",
+		],
+		"description": "delta"
+	},
+	"Delta": {
+		"prefix": ["Delta","@D"],
+		"body": [
+			"Δ ",
+		],
+		"description": "Delta"
+	},
+	"epsilon": {
+		"prefix": ["epsilon","@e"],
+		"body": [
+			"ε ",
+		],
+		"description": "epsilon"
+	},
+	
+	"theta": {
+		"prefix": ["theta","th","kt","te","@q"],
+		"body": [
+			"θ",
+		],
+		"description": "theta"
+	},
+	"phi": {
+		"prefix": ["phi", "\\phi","@f"],
+		"body": [
+			"φ",
+		],
+		"description": "phi"
+	},
+	"omega": {
+		"prefix": ["omega","om", "@o"],
+		"body": [
+			"ω",
+		],
+		"description": "omega"
+	},
+	"lambda": {
+		"prefix": ["lambda","@l"],
+		"body": [
+			"λ",
+		],
+		"description": "lambda"
+	},
+	"Lambda": {
+		"prefix": ["Lambda","@L"],
+		"body": [
+			"Λ",
+		],
+		"description": "Lambda"
+	},
+	"nu": {
+		"prefix": ["nu","@n"],
+		"body": [
+			"ν",
+		],
+		"description": "nu"
+	},
+	"rho": {
+		"prefix": ["rho","@r"],
+		"body": [
+			"ρ",
+		],
+		"description": "rho"
+	},
+	"sigma": {
+		"prefix": ["sigma","@s"],
+		"body": [
+			"σ",
+		],
+		"description": "sigma"
+	},
+	// music
+	"musicxml": {
+		"prefix": ["musicxml",],
+		"body": [
+			"musicxml",
+		],
+		"description": "musicxml"
+	},
+	
+	// misc
+	"import time": {
+		"prefix": ["import time","timeimport"],
+		"body": [
+			"import time",
+		],
+		"description": "import time"
+	},
+	"initial time": {
+		"prefix": ["initialtime", "timeinitial", "t0", "t ="],
+		"body": [
+			"t = time.time()",
+		],
+		"description": "initial time"
+	},
+	"print time": {
+		"prefix": ["printtime", "timeprint", "t1"],
+		"body": [
+			"print(time.time() - t,'seconds'); t = time.time()",
+		],
+		"description": "print time"
+	},
+	"'''": {// three single quotation marks
+		"prefix": ["'''",],
+		"body": [
+			"'''",
+			"$0",
+			"'''",
+		],
+		"description": "'''"
+	},
+	"comments": {// three single quotation marks
+		"prefix": ["comments",],
+		"body": [
+			"'''",
+			"$0",
+			"'''",
+		],
+		"description": "comments"
+	},
+	"reload module": {
+		"prefix": ["reload module","re"],
+		"body": [
+			"#reload",
+			"from importlib import reload # >=python 3.4",
+			"import ${1:package}",
+			"reload( ${1:package} )",
+			"from ${1:package} import ${2:*} ",
+			"$0",
+		],
+		"description": "reload module"
+	},
+	".append()": {
+		"prefix": [".append()",],
+		"body": [
+			".append($0)",
+		],
+		"description": ".append()"
+	},
+	"################": {
+		"prefix": ["################","ps","ss"],
+		"body": [
+			"################",
+		],
+		"description": "################"
+	},
+	"squared": {
+		"prefix": ["\\s",],
+		"body": [
+			"**2 ",
+		],
+		"description": "squared"
+	},
+}

@@ -1,4 +1,11 @@
 numpy
-pandas
-matplotlib
 sympy
+scipy
+DateTime
+einsteinpy
+ipython
+jupyter
+matplotlib
+pandas
+pip
+
